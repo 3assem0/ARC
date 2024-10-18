@@ -9,25 +9,26 @@ const faqs = [
       "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
   },
   {
-    question: "Why are there so many lakes in Switzerland?",
+    question: "What's the best thing about Switzerland?",
     answer:
-      "The lakes in Switzerland are mainly due to glacial activity, which shaped the landscape and created numerous lakes.",
+      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
   },
   {
-    question: "How does the Swiss economy work?",
+    question: "What's the best thing about Switzerland?",
     answer:
-      "The Swiss economy is highly developed, with a focus on finance, pharmaceuticals, and manufacturing.",
+      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
   },
   {
-    question: "What is Swiss cheese known for?",
+    question: "What's the best thing about Switzerland?",
     answer:
-      "Swiss cheese is known for its holes and creamy texture, made using traditional methods.",
+      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
   },
   {
-    question: "What are Swiss watches famous for?",
+    question: "What's the best thing about Switzerland?",
     answer:
-      "Swiss watches are renowned for their precision and craftsmanship, making them some of the most sought-after timepieces in the world.",
+      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
   },
+
 ];
 
 function classNames(...classes: string[]) {
@@ -40,11 +41,11 @@ export default function FAQs() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
           <h2 className="text-center text-3xl font-extrabold  sm:text-4xl">
-            Frequently Asked Questions
+            Frequently asked questions
           </h2>
           <dl className="mt-6 space-y-6 divide-y divide-gray-200">
-            {faqs.map((faq, index) => (
-              <Disclosure as="div" key={index} className="pt-6">
+            {faqs.map((faq) => (
+              <Disclosure as="div" key={faq.question} className="pt-6">
                 {({ open }) => (
                   <>
                     <dt className="text-lg">
@@ -69,6 +70,8 @@ export default function FAQs() {
                   </>
                 )}
               </Disclosure>
+            //   
+            
             ))}
           </dl>
         </div>

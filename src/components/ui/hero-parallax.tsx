@@ -55,8 +55,6 @@ export const HeroParallax = ({
     springConfig
   );
   return (
-    <div suppressHydrationWarning={true}>
-
     <div
       ref={ref}
       className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -100,14 +98,11 @@ export const HeroParallax = ({
         </motion.div>
       </motion.div>
     </div>
-    </div>
   );
 };
 
 export const Header = () => {
   return (
-    <div suppressHydrationWarning={true}>
-
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         The Ultimate <br /> development studio
@@ -117,7 +112,6 @@ export const Header = () => {
         We are a team of passionate developers and designers that love to build
         amazing products.
       </p>
-    </div>
     </div>
   );
 };
@@ -134,8 +128,6 @@ export const ProductCard = ({
   translate: MotionValue<number>;
 }) => {
   return (
-    <div suppressHydrationWarning={true}>
-
     <motion.div
       style={{
         x: translate,
@@ -163,7 +155,5 @@ export const ProductCard = ({
         {product.title}
       </h2>
     </motion.div>
-    </div>
-
   );
 };

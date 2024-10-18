@@ -56,8 +56,6 @@ export const ContainerScroll = ({
 
 export const Header = ({ translate, titleComponent }: any) => {
   return (
-    <div suppressHydrationWarning={true}>
-    
     <motion.div
       style={{
         translateY: translate,
@@ -66,7 +64,6 @@ export const Header = ({ translate, titleComponent }: any) => {
     >
       {titleComponent}
     </motion.div>
-    </div>
   );
 };
 
@@ -81,7 +78,6 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div suppressHydrationWarning={true}>
     <motion.div
       style={{
         rotateX: rotate,
@@ -95,6 +91,5 @@ export const Card = ({
         {children}
       </div>
     </motion.div>
-    </div>
   );
 };

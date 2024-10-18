@@ -4,8 +4,6 @@ import Image from "next/image";
 
 export function HeroScrollDemo() {
   return (
-    <div suppressHydrationWarning={true}>
-
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
         titleComponent={
@@ -28,7 +26,6 @@ export function HeroScrollDemo() {
           draggable={false}
         />
       </ContainerScroll>
-    </div>
     </div>
   );
 }
