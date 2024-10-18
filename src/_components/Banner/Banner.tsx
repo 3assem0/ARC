@@ -7,6 +7,8 @@ const Banner: React.FC = () => {
   if (!isVisible) return null;
 
   return (
+    <div suppressHydrationWarning={true}>
+    
     <div className="fixed top-24 z-30 inset-x-0 pb-2 sm:pb-5">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="p-2 rounded-lg bg-indigo-600 shadow-lg sm:p-3">
@@ -69,6 +71,7 @@ const Banner: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

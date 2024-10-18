@@ -4,6 +4,8 @@ import DarkmodeButtin from "../DarkmodeButtin/DarkmodeButtin";
 
 export default function NavBar() {
   return (
+    <div suppressHydrationWarning={true}>
+
     <header className="fixed inset-x-0 top-0 z-[1000] mx-auto  border border-gray-100 bg-white/80 py-1 shadow backdrop-blur-lg top-6 rounded-3xl max-w-[300px]">
     <div className="px-4">
       <div className="flex items-center justify-between">
@@ -60,5 +62,7 @@ export default function NavBar() {
       </div>
     </div>
   </header>
+  </div>
+
   );
 }

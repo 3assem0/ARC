@@ -1,10 +1,15 @@
 import NavBar from "@/_components/NavBar/NavBar";
 import "./globals.css";
-import Home from "./(Pages)/page";
 import Banner from "@/_components/Banner/Banner";
 import Footer from "@/_components/Footer/Footer";
+import { ReactNode } from "react"; // Import ReactNode
 
-export default function RootLayout({ children }: any) {
+// Specify the type for props
+interface RootLayoutProps {
+  children: ReactNode; // Use ReactNode for children
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>

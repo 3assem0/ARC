@@ -2,8 +2,10 @@
 import { HeroParallax } from "@/components/ui/hero-parallax";
 
 export function Projects() {
-  return <div className="text-gray-700">
+  return <div suppressHydrationWarning={true}>
+   <div className="text-gray-700">
     <HeroParallax products={products} />
+  </div>
   </div>
 }
 export const products = [
