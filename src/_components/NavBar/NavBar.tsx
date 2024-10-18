@@ -1,6 +1,5 @@
 "use client";
 
-import { Link } from "lucide-react";
 import DarkmodeButtin from "../DarkmodeButtin/DarkmodeButtin";
 
 export default function NavBar() {

@@ -1,10 +1,9 @@
-import About, { projects } from "@/_components/About/About";
-// import { BackgroundLinesDemo } from "@/_components/BackgroundLinesDemo/BackgroundLinesDemo";
 import Contact from "@/app/(Pages)/Contact/page";
 import FAQs from "@/_components/FAQs/FAQs";
 import { HeroScrollDemo } from "@/_components/FirstProject/FirstProject";
 import { Projects } from "@/_components/Projects/Projects";
 import { BackgroundLinesDemo } from "@/_components/BackgroundLinesDemo(/BackgroundLinesDemo(";
+import About from "@/_components/About/About";
 
 export default function Home() {
   return (
