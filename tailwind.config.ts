@@ -1,45 +1,46 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const svgToDataUri = require("mini-svg-data-uri");
-const colors = require("tailwindcss/colors");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+import { Config } from 'tailwindcss';
+import svgToDataUri from 'mini-svg-data-uri';
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
-      // Add your own custom configuration here if needed
+      animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+      },
     },
   },
   plugins: [
-    addVariablesForColors, // Adds color variables as CSS variables
-    function ({ matchUtilities, theme }: any) {
-      // Match utilities for background patterns
+    addVariablesForColors,
+    function ({ matchUtilities, theme }: { matchUtilities: any; theme: (key: string) => Record<string, any> }) {
       matchUtilities(
         {
-          // Thick dot pattern
-          "bg-dot-thick": (value: any) => ({
+          "bg-dot-thick": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="2.5"></circle></svg>`
             )}")`,
           }),
-          // Large grid pattern
-          "bg-grid": (value: any) => ({
+          "bg-grid": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
-          // Small grid pattern
-          "bg-grid-small": (value: any) => ({
+          "bg-grid-small": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
-          // Small dot pattern
-          "bg-dot": (value: any) => ({
+          "bg-dot": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
               `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
             )}")`,
@@ -51,10 +52,15 @@ module.exports = {
   ],
 };
 
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
+function addVariablesForColors({
+  addBase,
+  theme,
+}: {
+  addBase: (base: Record<string, any>) => void;
+  theme: (key: string) => Record<string, any>;
+}) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
@@ -62,3 +68,5 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
+export default config;

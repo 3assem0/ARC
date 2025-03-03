@@ -3,6 +3,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // Updated import
 
 const DarkmodeButton = () => {
   const [theme, setTheme] = useState<string | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   // On initial load, check the local storage for theme preference
   useEffect(() => {
@@ -14,6 +15,7 @@ const DarkmodeButton = () => {
       // If no preference is found, default to light mode
       setTheme("light");
     }
+    setIsHydrated(true); // Set hydrated flag to true after the initial render
   }, []);
 
   // Toggle between light and dark mode
@@ -23,6 +25,11 @@ const DarkmodeButton = () => {
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
+
+  // Only render button after hydration
+  if (!isHydrated) {
+    return null; // Prevent rendering until after the component has mounted
+  }
 
   return (
     <button

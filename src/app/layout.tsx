@@ -15,13 +15,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Your App Title</title>
+        <title>ARC</title>
         {/* Additional head elements like meta tags, favicons, etc. */}
       </head>
       <body className="dark:bg-black bg-white">
+        {/* fatma&mariam */}
         <NavBar />
         <Banner />
         <main className="container mx-auto">{children}</main>
+        {/* fatma&mariam */}
         <Footer />
       </body>
     </html>

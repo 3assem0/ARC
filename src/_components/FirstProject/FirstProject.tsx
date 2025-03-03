@@ -8,21 +8,22 @@ export function HeroScrollDemo() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl mb-6 font-semibold  dark:text-white">
+            <h1 className="flex mb-10 items-center  text-4xl text-center sm:text-6xl font-bold  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500">
               Unleash the power of your imagination <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              {/* <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none"> */}
                 With US
-              </span>
+               {/* <br/> */}
+              {/* </span> */}
             </h1>
           </>
         }
       >
         <Image
-          src={`/test.png`}
+          src={`/test1.JPG`}
           alt="hero"
           height={720}
           width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          className="mx-auto rounded-2xl  h-full object-left-top"
           draggable={false}
         />
       </ContainerScroll>
